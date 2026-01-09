@@ -39,7 +39,10 @@ selected_request = st.selectbox(
     requests_options
 )
 
-
+visite = st.sidebar.selectbox(
+    "Vous faites des recherches sur le tal🧐. Vous êtes : ",
+    ("un(e) curieux(se)", "un(e) étudiant(e) en TAL", "juste de passage")
+)
 #L'utilisateur peut sélectionner pour quel modèle il souhaite afficher des résultat et peut ainsi comparer la pertinence des modèles selon les résultats affichés pour chaque requête.
 model_recherche=st.text_input("Veuillez choisir un model")
 recherche = st.button("Rechercher")
