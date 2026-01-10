@@ -1,0 +1,50 @@
+name: website
+
+# Build the documentation whenever there are new commits on master
+on:
+  push:
+    branches:
+      - master
+
+# Security: restrict permissions for CI jobs
+permissions:
+  contents: read
+
+jobs:
+  # Build the documentation and upload the static HTML files as an artifact
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+
+      # Install dependencies and pdoc
+      - run: |
+          pip install -r requirements.txt
+          pip install pdoc
+
+      # Build documentation into docs/
+      - run: pdoc ./appy.py --output-dir docs/
+
+      # Upload the generated docs for deployment
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: docs/
+
+  # Deploy the artifact to GitHub Pages
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
