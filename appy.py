@@ -19,6 +19,7 @@ L'utilisateur peut saisir pour quel modèle il souhaite afficher des résultat e
 
 5 requêtes sont prédéfinies pour la recherche. C'est sur la base de ces requêtes que les scores ont été calculés avec différents modèles de recherche d'information (modèles dense, hybrid, épars)
 """
+
 import streamlit as st
 import pickle
 import pandas as pd
@@ -38,6 +39,7 @@ nb_iter = st.number_input(
 )
 # Requêtes
 
+#5 requêtes sont prédéfinies pour la recherche. C'est sur la base de ces requêtes que les scores ont été calculés avec différents modèles de recherche d'information (modèles dense, hybrid, épars)
 
 requests_options = (
     "Reconnaissance d'entités nommées",
@@ -56,7 +58,7 @@ visite = st.sidebar.selectbox(
     "Vous faites des recherches sur le tal🧐. Vous êtes : ",
     ("un(e) curieux(se)", "un(e) étudiant(e) en TAL", "juste de passage")
 )
-
+#L'utilisateur peut sélectionner pour quel modèle il souhaite afficher des résultat et peut ainsi comparer la pertinence des modèles selon les résultats affichés pour chaque requête.
 model_recherche=st.text_input("Veuillez choisir un model")
 recherche = st.button("Rechercher")
 
