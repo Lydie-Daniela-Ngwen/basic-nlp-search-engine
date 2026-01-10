@@ -1,15 +1,30 @@
+"""
+Application Streamlit pour un moteur de recherche d'articles en TAL.
+
+Ce module contient des scores des différents modèles utilisés (BM25, KeyBERT et RRF),
+respectivement pour les modèles épars, denses et hybrides.
+
+Les articles pertinents et correspondants aux requêtes, obtenus selon les scores,
+sont récupérés sous forme de DataFrame nommés dfs_bm25, dfs_dense et dfs_hybrid.
+
+Le notebook contenant les calculs des différents scores est présent dans ce projet.
+Les données sont récupérées sur la plateforme HuggingFace et sont composées des articles
+en TAL avec leurs métadonnées (titre, extrait, texte complet, url, éditeurs etc).
+
+Les données sont prétraitées (tokenisation, mise en minuscules, suppression des stopwords)
+et des scores sont calculés pour chaque système de recherche d'information. Les résultats
+(articles pertinents selon les requêtes) sont sauvegardés au format pickle.
+
+L'utilisateur peut saisir pour quel modèle il souhaite afficher des résultat et peut ainsi comparer la pertinence des modèles selon les résultats affichés pour chaque requête.
+
+5 requêtes sont prédéfinies pour la recherche. C'est sur la base de ces requêtes que les scores ont été calculés avec différents modèles de recherche d'information (modèles dense, hybrid, épars)
+"""
+
 import streamlit as st
 import pickle
 import pandas as pd
 from validation import validate_name
 
-#Application streamlit pour un moteur de recherche d'articles en TAL.
-#Contient des scores des différents modèles utilisés (BM25, KeyBERT et RRF), respectivement pour les modèles épars, denses et hybrides.
-#Les articles pertinents et correspondants aux requêtes, obtenus selon les scores, sont récupérés sous forme de data frame dénommés dfs_bm25, dfs_dense et dfs_hybrid.
-#Le notebook contenant des calculs des différents scores est présent dans ce projet. Les données sont récupérées sur la plateforme hugging face
-#et sont composées des articles en TAL avec leurs métadonnées (titre,extrait, texte complet, url, éditeurs etc). Les données sont ensuite prétraitées
-#(tokenisées, mis en minuscules, stopwords supprimés) et des scores sont calculés pour chaque système de recherche d'information. Les résultats (articles pertinents
-#selon les requêtes) sont récupérés sous forme de dataframe pandas, puis, mis sous format csv.
 
 
 st.title("Moteur de Recherche en TAL")
