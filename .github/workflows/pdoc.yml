@@ -28,7 +28,7 @@ jobs:
           pip install pdoc
 
       # Build documentation into docs/
-      - run: pdoc appy --output-dir docs/
+      - run: pdoc ./appy.py --output-dir docs/
 
       # Upload the generated docs for deployment
       - uses: actions/upload-pages-artifact@v4
