@@ -1,5 +1,5 @@
 streamlit
 pandas
 langdetect
-sentence transformers
+sentence-transformers
 pytest
