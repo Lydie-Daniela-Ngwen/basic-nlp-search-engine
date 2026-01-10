@@ -37,10 +37,10 @@ Les résultats obtenus des requêtes sont sous forme de dataframe pandas contena
 
 ### Installation
 ```bash
-pip install -r requirements.txt```
+pip install -r requirements.txt
 
 
 ### Lancer l'application
 ```bash
-streamlit run appy.py```
+streamlit run appy.py
 
