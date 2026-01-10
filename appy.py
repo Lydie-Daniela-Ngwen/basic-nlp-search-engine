@@ -1,7 +1,7 @@
 """
 Application Streamlit pour un moteur de recherche d'articles en TAL.
 
-Ce module contient des scores des différents modèles utilisés (BM25, KeyBERT et RRF),
+Les scores sont calculés pour différents modèles utilisés : BM25, antoinelouis/biencoder-mMiniLMv2-L6-mmarcoFR(un sentence-transformer), et RRF,
 respectivement pour les modèles épars, denses et hybrides.
 
 Les articles pertinents et correspondants aux requêtes, obtenus selon les scores,
